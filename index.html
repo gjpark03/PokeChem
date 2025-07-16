@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Choice Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Animated background particles */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: drift 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(-50%, -50%); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .title {
+            max-width: 600px;
+            height: auto;
+            margin-bottom: 60px;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(59, 76, 202, 0.4));
+            animation: bounce 2s ease-in-out infinite;
+            z-index: 1;
+            position: relative;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .choices-container {
+            display: flex;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .choice-box {
+            width: 200px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .choice-box::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: top 0.5s ease;
+        }
+
+        .choice-box:hover::before {
+            top: 100%;
+        }
+
+        .choice-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .choice-box span {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Different colors for each choice */
+        .choice-box:nth-child(1) {
+            background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1));
+        }
+        .choice-box:nth-child(1):hover {
+            background: linear-gradient(135deg, rgba(255,107,107,0.3), rgba(255,107,107,0.2));
+            box-shadow: 0 20px 40px rgba(255,107,107,0.3), 0 0 30px rgba(255,107,107,0.5);
+        }
+
+        .choice-box:nth-child(2) {
+            background: linear-gradient(135deg, rgba(107,255,156,0.2), rgba(107,255,156,0.1));
+        }
+        .choice-box:nth-child(2):hover {
+            background: linear-gradient(135deg, rgba(107,255,156,0.3), rgba(107,255,156,0.2));
+            box-shadow: 0 20px 40px rgba(107,255,156,0.3), 0 0 30px rgba(107,255,156,0.5);
+        }
+
+        .choice-box:nth-child(3) {
+            background: linear-gradient(135deg, rgba(107,156,255,0.2), rgba(107,156,255,0.1));
+        }
+        .choice-box:nth-child(3):hover {
+            background: linear-gradient(135deg, rgba(107,156,255,0.3), rgba(107,156,255,0.2));
+            box-shadow: 0 20px 40px rgba(107,156,255,0.3), 0 0 30px rgba(107,156,255,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                max-width: 80%;
+                margin-bottom: 40px;
+            }
+            
+            .choices-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .choice-box {
+                width: 250px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="pokechem.png" alt="Pokéchem" class="title">
+    
+    <div class="choices-container">
+        <a href="/path1.html" class="choice-box">
+            <span>Path One</span>
+        </a>
+        <a href="/path2.html" class="choice-box">
+            <span>Path Two</span>
+        </a>
+        <a href="/path3.html" class="choice-box">
+            <span>Path Three</span>
+        </a>
+    </div>
+</body>
+</html>
