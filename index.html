@@ -82,6 +82,7 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-decoration: none;
@@ -120,6 +121,16 @@
             position: relative;
             z-index: 1;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .choice-box .subtext {
+            position: relative;
+            z-index: 1;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            opacity: 0.8;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
 
         /* Different colors for each choice */
@@ -175,6 +186,7 @@
     <div class="choices-container">
         <a href="/chapter1-3.html" class="choice-box">
             <span>Chapter 1-3</span>
+            <div class="subtext">Sig Figs, Unit Conversions, Stoichiometry</div>
         </a>
         <a href="/chapter4-6.html" class="choice-box">
             <span>Chapter 4-6</span>

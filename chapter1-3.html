@@ -17,10 +17,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            overflow-y: auto;
+            padding: 20px 0;
         }
 
         /* Animated background particles */
@@ -115,13 +116,138 @@
             background: linear-gradient(135deg, rgba(255, 107, 107, 0.4), rgba(255, 107, 107, 0.3));
         }
 
+        .question-container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+
+        .question-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .answer-choices {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .answer-choice {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .answer-choice:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .answer-choice.correct {
+            background: linear-gradient(135deg, rgba(107, 255, 156, 0.4), rgba(107, 255, 156, 0.3));
+            border-color: rgba(107, 255, 156, 0.6);
+            box-shadow: 0 0 20px rgba(107, 255, 156, 0.4);
+        }
+
+        .answer-choice.incorrect {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.4), rgba(255, 107, 107, 0.3));
+            border-color: rgba(255, 107, 107, 0.6);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .feedback-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .feedback-message.correct {
+            color: #6bff9c;
+        }
+
+        .feedback-message.incorrect {
+            color: #ff6b6b;
+        }
+
+        .explanation {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            padding: 12px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .action-button:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .action-button.next {
+            background: linear-gradient(135deg, rgba(107, 255, 156, 0.3), rgba(107, 255, 156, 0.2));
+        }
+
+        .action-button.try-again {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.3), rgba(255, 193, 7, 0.2));
+        }
+
+        .hidden {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .title {
                 max-width: 80%;
                 margin-bottom: 40px;
             }
 
-            .chapter-content {
+            .chapter-content,
+            .question-container {
                 margin: 20px;
                 padding: 30px;
             }
@@ -132,6 +258,16 @@
 
             .chapter-description {
                 font-size: 1rem;
+            }
+
+            .answer-choices {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -149,7 +285,93 @@
         </p>
     </div>
 
+    <div class="question-container">
+        <h2 class="question-title">Chapter 1: Question 1</h2>
+        <p class="question-text">What is the correct number of significant figures in the measurement 0.00450?</p>
+
+        <div class="answer-choices">
+            <div class="answer-choice" data-correct="false">A) 2</div>
+            <div class="answer-choice" data-correct="true">B) 3</div>
+            <div class="answer-choice" data-correct="false">C) 4</div>
+            <div class="answer-choice" data-correct="false">D) 5</div>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback"></div>
+        <div class="explanation hidden" id="explanation"></div>
+
+        <div class="action-buttons hidden" id="action-buttons">
+            <button class="action-button next hidden" id="next-button">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button">Try Again</button>
+        </div>
+    </div>
+
     <a href="index.html" class="back-button">Back to Main Menu</a>
+
+    <script>
+        const answerChoices = document.querySelectorAll('.answer-choice');
+        const feedback = document.getElementById('feedback');
+        const explanation = document.getElementById('explanation');
+        const actionButtons = document.getElementById('action-buttons');
+        const nextButton = document.getElementById('next-button');
+        const tryAgainButton = document.getElementById('try-again-button');
+
+        answerChoices.forEach(choice => {
+            choice.addEventListener('click', function () {
+                if (feedback.classList.contains('hidden')) {
+                    const isCorrect = this.getAttribute('data-correct') === 'true';
+
+                    // Disable all choices
+                    answerChoices.forEach(c => c.style.pointerEvents = 'none');
+
+                    if (isCorrect) {
+                        // Correct answer
+                        this.classList.add('correct');
+                        feedback.textContent = "That's Super Effective!";
+                        feedback.classList.add('correct');
+                        feedback.classList.remove('hidden');
+
+                        explanation.textContent = "Correct! The measurement 0.00450 has 3 significant figures. The leading zeros (0.004) are not significant, but the trailing zero after the decimal point (0.00450) is significant because it indicates precision in the measurement.";
+                        explanation.classList.remove('hidden');
+
+                        nextButton.classList.remove('hidden');
+                        actionButtons.classList.remove('hidden');
+                    } else {
+                        // Wrong answer
+                        this.classList.add('incorrect');
+
+                        // Find and highlight the correct answer
+                        const correctChoice = document.querySelector('.answer-choice[data-correct="true"]');
+                        correctChoice.classList.add('correct');
+
+                        feedback.textContent = "That's Not Super Effective!";
+                        feedback.classList.add('incorrect');
+                        feedback.classList.remove('hidden');
+
+                        tryAgainButton.classList.remove('hidden');
+                        actionButtons.classList.remove('hidden');
+                    }
+                }
+            });
+        });
+
+        tryAgainButton.addEventListener('click', function () {
+            // Reset everything
+            answerChoices.forEach(c => {
+                c.classList.remove('correct', 'incorrect');
+                c.style.pointerEvents = 'auto';
+            });
+            feedback.classList.add('hidden');
+            explanation.classList.add('hidden');
+            actionButtons.classList.add('hidden');
+            nextButton.classList.add('hidden');
+            tryAgainButton.classList.add('hidden');
+        });
+
+        nextButton.addEventListener('click', function () {
+            // For now, just show a message that this would go to the next question
+            alert('This would navigate to the next question in a full implementation.');
+        });
+    </script>
 </body>
 
 </html>
