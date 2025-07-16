@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,15 +29,20 @@
             position: absolute;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
             background-size: 50px 50px;
             animation: drift 20s linear infinite;
             z-index: 0;
         }
 
         @keyframes drift {
-            0% { transform: translate(-50%, -50%); }
-            100% { transform: translate(0, 0); }
+            0% {
+                transform: translate(-50%, -50%);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
         }
 
         .title {
@@ -50,8 +56,15 @@
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .choices-container {
@@ -88,7 +101,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: top 0.5s ease;
         }
 
@@ -98,7 +111,7 @@
 
         .choice-box:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.3);
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(255, 255, 255, 0.4);
         }
@@ -106,32 +119,35 @@
         .choice-box span {
             position: relative;
             z-index: 1;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         /* Different colors for each choice */
         .choice-box:nth-child(1) {
-            background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1));
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 107, 107, 0.1));
         }
+
         .choice-box:nth-child(1):hover {
-            background: linear-gradient(135deg, rgba(255,107,107,0.3), rgba(255,107,107,0.2));
-            box-shadow: 0 20px 40px rgba(255,107,107,0.3), 0 0 30px rgba(255,107,107,0.5);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 107, 107, 0.2));
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3), 0 0 30px rgba(255, 107, 107, 0.5);
         }
 
         .choice-box:nth-child(2) {
-            background: linear-gradient(135deg, rgba(107,255,156,0.2), rgba(107,255,156,0.1));
+            background: linear-gradient(135deg, rgba(107, 255, 156, 0.2), rgba(107, 255, 156, 0.1));
         }
+
         .choice-box:nth-child(2):hover {
-            background: linear-gradient(135deg, rgba(107,255,156,0.3), rgba(107,255,156,0.2));
-            box-shadow: 0 20px 40px rgba(107,255,156,0.3), 0 0 30px rgba(107,255,156,0.5);
+            background: linear-gradient(135deg, rgba(107, 255, 156, 0.3), rgba(107, 255, 156, 0.2));
+            box-shadow: 0 20px 40px rgba(107, 255, 156, 0.3), 0 0 30px rgba(107, 255, 156, 0.5);
         }
 
         .choice-box:nth-child(3) {
-            background: linear-gradient(135deg, rgba(107,156,255,0.2), rgba(107,156,255,0.1));
+            background: linear-gradient(135deg, rgba(107, 156, 255, 0.2), rgba(107, 156, 255, 0.1));
         }
+
         .choice-box:nth-child(3):hover {
-            background: linear-gradient(135deg, rgba(107,156,255,0.3), rgba(107,156,255,0.2));
-            box-shadow: 0 20px 40px rgba(107,156,255,0.3), 0 0 30px rgba(107,156,255,0.5);
+            background: linear-gradient(135deg, rgba(107, 156, 255, 0.3), rgba(107, 156, 255, 0.2));
+            box-shadow: 0 20px 40px rgba(107, 156, 255, 0.3), 0 0 30px rgba(107, 156, 255, 0.5);
         }
 
         @media (max-width: 768px) {
@@ -139,12 +155,12 @@
                 max-width: 80%;
                 margin-bottom: 40px;
             }
-            
+
             .choices-container {
                 flex-direction: column;
                 gap: 30px;
             }
-            
+
             .choice-box {
                 width: 250px;
                 height: 100px;
@@ -152,19 +168,21 @@
         }
     </style>
 </head>
+
 <body>
     <img src="pokechem.png" alt="Pokéchem" class="title">
-    
+
     <div class="choices-container">
-        <a href="/path1.html" class="choice-box">
-            <span>Path One</span>
+        <a href="/chapter1-3.html" class="choice-box">
+            <span>Chapter 1-3</span>
         </a>
-        <a href="/path2.html" class="choice-box">
-            <span>Path Two</span>
+        <a href="/chapter4-6.html" class="choice-box">
+            <span>Chapter 4-6</span>
         </a>
-        <a href="/path3.html" class="choice-box">
-            <span>Path Three</span>
+        <a href="/chapter7.html" class="choice-box">
+            <span>Chapter 7</span>
         </a>
     </div>
 </body>
+
 </html>
