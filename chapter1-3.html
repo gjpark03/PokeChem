@@ -143,40 +143,70 @@
             line-height: 1.5;
         }
 
-        .answer-choices {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        .answer-input-container {
             margin-bottom: 30px;
+            text-align: center;
         }
 
-        .answer-choice {
-            padding: 20px;
+        .answer-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px 20px;
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 15px;
             color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .answer-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .submit-button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, rgba(107, 255, 156, 0.3), rgba(107, 255, 156, 0.2));
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: #fff;
             font-size: 1.1rem;
+            font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-align: center;
         }
 
-        .answer-choice:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .submit-button:hover {
             transform: translateY(-2px);
-        }
-
-        .answer-choice.correct {
             background: linear-gradient(135deg, rgba(107, 255, 156, 0.4), rgba(107, 255, 156, 0.3));
-            border-color: rgba(107, 255, 156, 0.6);
-            box-shadow: 0 0 20px rgba(107, 255, 156, 0.4);
         }
 
-        .answer-choice.incorrect {
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.4), rgba(255, 107, 107, 0.3));
-            border-color: rgba(255, 107, 107, 0.6);
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+        .hint-container {
+            background: rgba(255, 193, 7, 0.1);
+            border: 2px solid rgba(255, 193, 7, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #fff;
+        }
+
+        .hint-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .hint-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
         }
 
         .feedback-message {
@@ -187,7 +217,8 @@
         }
 
         .feedback-message.correct {
-            color: #6bff9c;
+            color: #00ff88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
         }
 
         .feedback-message.incorrect {
@@ -260,9 +291,9 @@
                 font-size: 1rem;
             }
 
-            .answer-choices {
-                grid-template-columns: 1fr;
-                gap: 15px;
+            .answer-input {
+                max-width: 100%;
+                font-size: 1rem;
             }
 
             .action-buttons {
@@ -277,27 +308,35 @@
     <img src="pokechem.png" alt="Pokéchem" class="title">
 
     <div class="chapter-content">
-        <h1 class="chapter-title">Chapter 1-3</h1>
+        <h1 class="chapter-title">Chapter 1 - 3</h1>
         <p class="chapter-description">
-            Welcome to Chapters 1-3 of your Pokémon adventure! This section covers the beginning of your journey,
-            from choosing your first Pokémon to facing your first major challenges. Experience the excitement of
-            starting your quest and discovering the world of Pokémon.
+            Now that you've finished your Pokémon gym challenge, you are studying to become Professor Oak's lab
+            assistant.
+            Today, you're taking a practice test that covers Chapter 1 - 3 of General Chemistry.
+            You obtained the Pokédex, it comes with a periodic table, calculator, a list of polyatomic ions, and more.
+            It's super effective!
         </p>
     </div>
 
-    <div class="question-container">
+    <div class="question-container" id="question1">
         <h2 class="question-title">Chapter 1: Question 1</h2>
-        <p class="question-text">What is the correct number of significant figures in the measurement 0.00450?</p>
+        <p class="question-text">The Sinnoh region has three famous Lakes. Lake Verity contains 1.4 x 10^17 gallons of
+            water. Lake Valor contains 2.1 x 10^16 gallons of water. Lake Acuity contains 1.3 x 10^17 gallons of water.
+            How many liters total are in the three lakes? Express your answer in Scientific Notation and make sure to
+            have the correct number of significant figures. (Use 1 gal = 3.785 L)</p>
 
-        <div class="answer-choices">
-            <div class="answer-choice" data-correct="false">A) 2</div>
-            <div class="answer-choice" data-correct="true">B) 3</div>
-            <div class="answer-choice" data-correct="false">C) 4</div>
-            <div class="answer-choice" data-correct="false">D) 5</div>
+        <div class="answer-input-container">
+            <input type="text" class="answer-input" id="answer-input1"
+                placeholder="Enter your answer in scientific notation (e.g., 1.1 x 10^18)">
+            <button class="submit-button" id="submit-button1">Submit Answer</button>
         </div>
 
         <div class="feedback-message hidden" id="feedback"></div>
         <div class="explanation hidden" id="explanation"></div>
+        <div class="hint-container hidden" id="hint-container1">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
 
         <div class="action-buttons hidden" id="action-buttons">
             <button class="action-button next hidden" id="next-button">Next Question</button>
@@ -305,72 +344,154 @@
         </div>
     </div>
 
+    <div class="question-container" id="question2" style="display: none;">
+        <h2 class="question-title">Chapter 1: Question 2</h2>
+        <p class="question-text">In March, Butterfree migrate from Viridian Forest to the Ilex Forest in the Johto
+            region. They also take a rest stop at Route 29. The distance from Viridian Forest to Route 29 is 116,000 ft,
+            and the Butterfree fly at 14mi/hr. At Route 29, the Butterfree rest for 3.56 hours. From Route 29 to Ilex
+            Forest, the distance is 78,900 ft and the Butterfree fly at 12mi/hr. How many seconds does it take for the
+            Butterfree to migrate? Put your answer in Scientific Notation.</p>
+
+        <div class="answer-input-container">
+            <input type="text" class="answer-input" id="answer-input2"
+                placeholder="Enter your answer in scientific notation (e.g., 2.2948 x 10^4)">
+            <button class="submit-button" id="submit-button2">Submit Answer</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback2"></div>
+        <div class="explanation hidden" id="explanation2"></div>
+        <div class="hint-container hidden" id="hint-container2">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons2">
+            <button class="action-button next hidden" id="next-button2">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button2">Try Again</button>
+        </div>
+    </div>
+
     <a href="index.html" class="back-button">Back to Main Menu</a>
 
     <script>
-        const answerChoices = document.querySelectorAll('.answer-choice');
-        const feedback = document.getElementById('feedback');
-        const explanation = document.getElementById('explanation');
-        const actionButtons = document.getElementById('action-buttons');
-        const nextButton = document.getElementById('next-button');
-        const tryAgainButton = document.getElementById('try-again-button');
+        let currentQuestion = 1;
+        const totalQuestions = 2;
+        let wrongAttempts = { 1: 0, 2: 0 };
 
-        answerChoices.forEach(choice => {
-            choice.addEventListener('click', function () {
-                if (feedback.classList.contains('hidden')) {
-                    const isCorrect = this.getAttribute('data-correct') === 'true';
+        const correctAnswers = {
+            1: "1.1 x 10^18",
+            2: "2.2948 x 10^4"
+        };
 
-                    // Disable all choices
-                    answerChoices.forEach(c => c.style.pointerEvents = 'none');
+        const explanations = {
+            1: "Correct! To solve this problem, we need to convert all three lake volumes from gallons to liters and then add them together. Lake Verity: 1.4 × 10^17 gal × 3.785 L/gal = 5.299 × 10^17 L. Lake Valor: 2.1 × 10^16 gal × 3.785 L/gal = 7.9485 × 10^16 L. Lake Acuity: 1.3 × 10^17 gal × 3.785 L/gal = 4.9205 × 10^17 L. Total: 5.299 × 10^17 + 0.79485 × 10^17 + 4.9205 × 10^17 = 11.01435 × 10^17 = 1.1 × 10^18 L (rounded to 2 significant figures).",
+            2: "Correct! To solve this problem, we need to calculate the time for each leg of the journey and add them together. First leg: 116,000 ft ÷ (14 mi/hr × 5280 ft/mi) = 116,000 ÷ 73,920 = 1.569 hours. Rest time: 3.56 hours. Second leg: 78,900 ft ÷ (12 mi/hr × 5280 ft/mi) = 78,900 ÷ 63,360 = 1.246 hours. Total time: 1.569 + 3.56 + 1.246 = 6.375 hours. Convert to seconds: 6.375 hours × 3600 seconds/hour = 22,948 seconds = 2.2948 × 10^4 seconds."
+        };
 
-                    if (isCorrect) {
-                        // Correct answer
-                        this.classList.add('correct');
-                        feedback.textContent = "That's Super Effective!";
-                        feedback.classList.add('correct');
-                        feedback.classList.remove('hidden');
+        function showQuestion(questionNumber) {
+            // Hide all questions
+            document.querySelectorAll('.question-container').forEach(container => {
+                container.style.display = 'none';
+            });
 
-                        explanation.textContent = "Correct! The measurement 0.00450 has 3 significant figures. The leading zeros (0.004) are not significant, but the trailing zero after the decimal point (0.00450) is significant because it indicates precision in the measurement.";
-                        explanation.classList.remove('hidden');
+            // Show the current question
+            const currentQuestionContainer = document.getElementById(`question${questionNumber}`);
+            if (currentQuestionContainer) {
+                currentQuestionContainer.style.display = 'block';
+            }
+        }
 
+        function normalizeAnswer(answer) {
+            // Remove extra spaces and convert to lowercase for comparison
+            return answer.trim().toLowerCase().replace(/\s+/g, '');
+        }
+
+        function setupQuestionHandlers(questionNumber) {
+            const answerInput = document.getElementById(`answer-input${questionNumber}`);
+            const submitButton = document.getElementById(`submit-button${questionNumber}`);
+            const feedback = document.getElementById(`feedback${questionNumber === 1 ? '' : questionNumber}`);
+            const explanation = document.getElementById(`explanation${questionNumber === 1 ? '' : questionNumber}`);
+            const hintContainer = document.getElementById(`hint-container${questionNumber}`);
+            const actionButtons = document.getElementById(`action-buttons${questionNumber === 1 ? '' : questionNumber}`);
+            const nextButton = document.getElementById(`next-button${questionNumber === 1 ? '' : questionNumber}`);
+            const tryAgainButton = document.getElementById(`try-again-button${questionNumber === 1 ? '' : questionNumber}`);
+
+            function checkAnswer() {
+                const userAnswer = normalizeAnswer(answerInput.value);
+                const correctAnswer = normalizeAnswer(correctAnswers[questionNumber]);
+
+                if (userAnswer === correctAnswer) {
+                    // Correct answer
+                    feedback.textContent = "That's Super Effective!";
+                    feedback.classList.remove('incorrect');
+                    feedback.classList.add('correct');
+                    feedback.classList.remove('hidden');
+
+                    explanation.textContent = explanations[questionNumber];
+                    explanation.classList.remove('hidden');
+
+                    if (questionNumber < totalQuestions) {
                         nextButton.classList.remove('hidden');
-                        actionButtons.classList.remove('hidden');
-                    } else {
-                        // Wrong answer
-                        this.classList.add('incorrect');
-
-                        // Find and highlight the correct answer
-                        const correctChoice = document.querySelector('.answer-choice[data-correct="true"]');
-                        correctChoice.classList.add('correct');
-
-                        feedback.textContent = "That's Not Super Effective!";
-                        feedback.classList.add('incorrect');
-                        feedback.classList.remove('hidden');
-
-                        tryAgainButton.classList.remove('hidden');
-                        actionButtons.classList.remove('hidden');
                     }
+                    actionButtons.classList.remove('hidden');
+
+                    // Disable input and submit button
+                    answerInput.disabled = true;
+                    submitButton.disabled = true;
+                } else {
+                    // Wrong answer
+                    wrongAttempts[questionNumber]++;
+
+                    feedback.textContent = "That's Not Super Effective!";
+                    feedback.classList.remove('correct');
+                    feedback.classList.add('incorrect');
+                    feedback.classList.remove('hidden');
+
+                    // Show hint after 2 wrong attempts
+                    if (wrongAttempts[questionNumber] >= 2) {
+                        hintContainer.classList.remove('hidden');
+                    }
+
+                    tryAgainButton.classList.remove('hidden');
+                    actionButtons.classList.remove('hidden');
+                }
+            }
+
+            submitButton.addEventListener('click', checkAnswer);
+
+            answerInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    checkAnswer();
                 }
             });
-        });
 
-        tryAgainButton.addEventListener('click', function () {
-            // Reset everything
-            answerChoices.forEach(c => {
-                c.classList.remove('correct', 'incorrect');
-                c.style.pointerEvents = 'auto';
+            tryAgainButton.addEventListener('click', function () {
+                // Reset everything
+                answerInput.value = '';
+                answerInput.disabled = false;
+                submitButton.disabled = false;
+                feedback.classList.add('hidden');
+                explanation.classList.add('hidden');
+                hintContainer.classList.add('hidden');
+                actionButtons.classList.add('hidden');
+                nextButton.classList.add('hidden');
+                tryAgainButton.classList.add('hidden');
             });
-            feedback.classList.add('hidden');
-            explanation.classList.add('hidden');
-            actionButtons.classList.add('hidden');
-            nextButton.classList.add('hidden');
-            tryAgainButton.classList.add('hidden');
-        });
 
-        nextButton.addEventListener('click', function () {
-            // For now, just show a message that this would go to the next question
-            alert('This would navigate to the next question in a full implementation.');
-        });
+            nextButton.addEventListener('click', function () {
+                if (questionNumber < totalQuestions) {
+                    currentQuestion = questionNumber + 1;
+                    showQuestion(currentQuestion);
+                    // Reset wrong attempts for the new question
+                    wrongAttempts[currentQuestion] = 0;
+                }
+            });
+        }
+
+        // Initialize the first question
+        showQuestion(1);
+        setupQuestionHandlers(1);
+        setupQuestionHandlers(2);
     </script>
 </body>
 
