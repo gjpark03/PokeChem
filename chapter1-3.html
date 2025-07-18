@@ -267,6 +267,32 @@
             background: linear-gradient(135deg, rgba(255, 193, 7, 0.3), rgba(255, 193, 7, 0.2));
         }
 
+        .action-button.skip {
+            background: linear-gradient(135deg, rgba(108, 117, 125, 0.3), rgba(108, 117, 125, 0.2));
+            margin-left: 10px;
+        }
+
+        .completion-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .completion-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .completion-buttons .action-button {
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
         .hidden {
             display: none;
         }
@@ -329,6 +355,7 @@
             <input type="text" class="answer-input" id="answer-input1"
                 placeholder="Enter your answer in scientific notation (e.g., 1.1 x 10^18)">
             <button class="submit-button" id="submit-button1">Submit Answer</button>
+            <button class="action-button skip" id="skip-button1">Skip Question</button>
         </div>
 
         <div class="feedback-message hidden" id="feedback"></div>
@@ -356,6 +383,7 @@
             <input type="text" class="answer-input" id="answer-input2"
                 placeholder="Enter your answer in scientific notation (e.g., 2.2948 x 10^4)">
             <button class="submit-button" id="submit-button2">Submit Answer</button>
+            <button class="action-button skip" id="skip-button2">Skip Question</button>
         </div>
 
         <div class="feedback-message hidden" id="feedback2"></div>
@@ -371,28 +399,294 @@
         </div>
     </div>
 
+    <div class="question-container" id="question3" style="display: none;">
+        <h2 class="question-title">Chapter 2: Question 1</h2>
+        <p class="question-text">A new element, Kantonium is in the same group as the element Magnesium. What is the
+            name of the group? Predict the charge of a Kantonium ion. Predict one chemical and one physical property of
+            Kantonium.</p>
+
+        <div class="answer-input-container">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Group name:</label>
+                <input type="text" class="answer-input" id="answer-input3-1" placeholder="Enter the group name">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Predicted charge:</label>
+                <input type="text" class="answer-input" id="answer-input3-2" placeholder="Enter the charge (e.g., 2+)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Chemical property:</label>
+                <input type="text" class="answer-input" id="answer-input3-3" placeholder="Enter one chemical property">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Physical property:</label>
+                <input type="text" class="answer-input" id="answer-input3-4" placeholder="Enter one physical property">
+            </div>
+            <button class="submit-button" id="submit-button3">Submit Answer</button>
+            <button class="action-button skip" id="skip-button3">Skip Question</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback3"></div>
+        <div class="explanation hidden" id="explanation3"></div>
+        <div class="hint-container hidden" id="hint-container3">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons3">
+            <button class="action-button next hidden" id="next-button3">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button3">Try Again</button>
+        </div>
+    </div>
+
+    <div class="question-container" id="question4" style="display: none;">
+        <h2 class="question-title">Chapter 2: Question 2</h2>
+        <p class="question-text">In the element Kantonium, there are 151 protons. The three major isotopes and
+            abundances are given as: Kantonium-308: 79.41%, Kantonium-315: 10.12%, Kantonium-326: 8.84%, Determine the
+            atomic mass of Kantonium as well as the number of neutrons in each of three major isotopes.</p>
+
+        <div class="answer-input-container">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Atomic mass (amu):</label>
+                <input type="text" class="answer-input" id="answer-input4-1"
+                    placeholder="Enter atomic mass (e.g., 305.279)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Number of neutrons:</label>
+                <input type="text" class="answer-input" id="answer-input4-2"
+                    placeholder="Enter number of neutrons (e.g., 175)">
+            </div>
+            <button class="submit-button" id="submit-button4">Submit Answer</button>
+            <button class="action-button skip" id="skip-button4">Skip Question</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback4"></div>
+        <div class="explanation hidden" id="explanation4"></div>
+        <div class="hint-container hidden" id="hint-container4">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons4">
+            <button class="action-button next hidden" id="next-button4">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button4">Try Again</button>
+        </div>
+    </div>
+
+    <div class="question-container" id="question5" style="display: none;">
+        <h2 class="question-title">Chapter 2: Question 3</h2>
+        <p class="question-text">A compound is made with 71.14% Kantonium, 3.24% Hydrogen, and 25.62% Oxygen. What is
+            the empirical formula? What is the molar mass of the empirical formula? If the molar mass of the compound is
+            2946.88g/mol what is the molecular formula?</p>
+
+        <div class="answer-input-container">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Empirical formula:</label>
+                <input type="text" class="answer-input" id="answer-input5-1"
+                    placeholder="Enter empirical formula (e.g., KaH14O7)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Molar mass of empirical formula
+                    (g/mol):</label>
+                <input type="text" class="answer-input" id="answer-input5-2" placeholder="Enter molar mass">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Molecular formula:</label>
+                <input type="text" class="answer-input" id="answer-input5-3"
+                    placeholder="Enter molecular formula (e.g., Ka4H56O28)">
+            </div>
+            <button class="submit-button" id="submit-button5">Submit Answer</button>
+            <button class="action-button skip" id="skip-button5">Skip Question</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback5"></div>
+        <div class="explanation hidden" id="explanation5"></div>
+        <div class="hint-container hidden" id="hint-container5">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons5">
+            <button class="action-button next hidden" id="next-button5">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button5">Try Again</button>
+        </div>
+    </div>
+
+    <div class="question-container" id="question6" style="display: none;">
+        <h2 class="question-title">Chapter 3: Question 1</h2>
+        <p class="question-text">Name the ionic compounds or write the formulas:</p>
+
+        <div class="answer-input-container">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">a. Fe2S3:</label>
+                <input type="text" class="answer-input" id="answer-input6-1"
+                    placeholder="Enter the name of the compound">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">b. Ti2(SO4)3:</label>
+                <input type="text" class="answer-input" id="answer-input6-2"
+                    placeholder="Enter the name of the compound">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">c. Na2HPO4:</label>
+                <input type="text" class="answer-input" id="answer-input6-3"
+                    placeholder="Enter the name of the compound">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">d. Iron (III) Chloride:</label>
+                <input type="text" class="answer-input" id="answer-input6-4" placeholder="Enter the formula">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">e. Tin (IV) Fluoride:</label>
+                <input type="text" class="answer-input" id="answer-input6-5" placeholder="Enter the formula">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">f. Iodine Heptafluoride:</label>
+                <input type="text" class="answer-input" id="answer-input6-6" placeholder="Enter the formula">
+            </div>
+            <button class="submit-button" id="submit-button6">Submit Answer</button>
+            <button class="action-button skip" id="skip-button6">Skip Question</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback6"></div>
+        <div class="explanation hidden" id="explanation6"></div>
+        <div class="hint-container hidden" id="hint-container6">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons6">
+            <button class="action-button next hidden" id="next-button6">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button6">Try Again</button>
+        </div>
+    </div>
+
+    <div class="question-container" id="question7" style="display: none;">
+        <h2 class="question-title">Chapter 3: Question 2</h2>
+        <p class="question-text">When Charizard uses flamethrower, a combustion reaction takes place. Balance the
+            following combustion reaction: C2H6 + O2 -> CO2 + H2O</p>
+        <p class="question-text">a. If 14 moles of Ethane reacts with 22 moles of Oxygen gas, find how many moles of CO2
+            is produced.</p>
+        <p class="question-text">b. If 27g of Ethane reacts with 98g of Oxygen gas, how many grams of H2O is produced?
+        </p>
+        <p class="question-text">c. What is the excess / limiting reactant? If the actual yield is 32.81g of water, what
+            is the percent yield?</p>
+
+        <div class="answer-input-container">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Balanced equation:</label>
+                <input type="text" class="answer-input" id="answer-input7-1"
+                    placeholder="Enter balanced equation (e.g., 2C2H6 + 7O2 -> 4CO2 + 6H2O)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">a. Moles of CO2 produced:</label>
+                <input type="text" class="answer-input" id="answer-input7-2" placeholder="Enter moles of CO2">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">b. Grams of H2O produced:</label>
+                <input type="text" class="answer-input" id="answer-input7-3" placeholder="Enter grams of H2O">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">c. Limiting reactant:</label>
+                <input type="text" class="answer-input" id="answer-input7-4" placeholder="Enter limiting reactant">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">c. Percent yield:</label>
+                <input type="text" class="answer-input" id="answer-input7-5" placeholder="Enter percent yield">
+            </div>
+            <button class="submit-button" id="submit-button7">Submit Answer</button>
+            <button class="action-button skip" id="skip-button7">Skip Question</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback7"></div>
+        <div class="explanation hidden" id="explanation7"></div>
+        <div class="hint-container hidden" id="hint-container7">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons7">
+            <button class="action-button next hidden" id="next-button7">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button7">Try Again</button>
+        </div>
+    </div>
+
+    <div class="completion-container" id="completion-container" style="display: none;">
+        <div class="chapter-content">
+            <h1 class="chapter-title">🎉 Congratulations! 🎉</h1>
+            <p class="chapter-description">
+                You have successfully completed the first part of your journey! You've mastered the fundamentals of
+                chemistry
+                and are now ready to take on more advanced challenges. Your knowledge of stoichiometry, chemical
+                nomenclature,
+                and atomic structure will serve you well in your continued studies.
+            </p>
+            <div class="completion-buttons">
+                <a href="index.html" class="action-button">🏠 Go Home</a>
+                <button class="action-button" id="restart-button">🔄 Restart</button>
+                <a href="chapter4-6.html" class="action-button">📚 Continue to Chapter 4-6</a>
+            </div>
+        </div>
+    </div>
+
     <a href="index.html" class="back-button">Back to Main Menu</a>
 
     <script>
         let currentQuestion = 1;
-        const totalQuestions = 2;
-        let wrongAttempts = { 1: 0, 2: 0 };
+        const totalQuestions = 7;
+        let wrongAttempts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0 };
 
         const correctAnswers = {
             1: "1.1 x 10^18",
-            2: "2.2948 x 10^4"
+            2: "2.2948 x 10^4",
+            3: {
+                group: "alkaline earth metals",
+                charge: "2+",
+                chemical: "lose electrons",
+                physical: "conduct electricity"
+            },
+            4: {
+                atomicMass: "305.279",
+                neutrons: "175"
+            },
+            5: {
+                empirical: "kah14o7",
+                molarMass: "736.72",
+                molecular: "ka4h56o28"
+            },
+            6: {
+                a: "iron iii sulfide",
+                b: "titanium iii sulfate",
+                c: "disodium hydrogen phosphate",
+                d: "fecl3",
+                e: "snf4",
+                f: "if7"
+            },
+            7: {
+                equation: "2c2h6 + 7o2 -> 4co2 + 6h2o",
+                molesCO2: "12.57",
+                gramsH2O: "47.25",
+                limiting: "ethane",
+                percentYield: "69.38"
+            }
         };
 
         const explanations = {
             1: "Correct! To solve this problem, we need to convert all three lake volumes from gallons to liters and then add them together. Lake Verity: 1.4 × 10^17 gal × 3.785 L/gal = 5.299 × 10^17 L. Lake Valor: 2.1 × 10^16 gal × 3.785 L/gal = 7.9485 × 10^16 L. Lake Acuity: 1.3 × 10^17 gal × 3.785 L/gal = 4.9205 × 10^17 L. Total: 5.299 × 10^17 + 0.79485 × 10^17 + 4.9205 × 10^17 = 11.01435 × 10^17 = 1.1 × 10^18 L (rounded to 2 significant figures).",
-            2: "Correct! To solve this problem, we need to calculate the time for each leg of the journey and add them together. First leg: 116,000 ft ÷ (14 mi/hr × 5280 ft/mi) = 116,000 ÷ 73,920 = 1.569 hours. Rest time: 3.56 hours. Second leg: 78,900 ft ÷ (12 mi/hr × 5280 ft/mi) = 78,900 ÷ 63,360 = 1.246 hours. Total time: 1.569 + 3.56 + 1.246 = 6.375 hours. Convert to seconds: 6.375 hours × 3600 seconds/hour = 22,948 seconds = 2.2948 × 10^4 seconds."
+            2: "Correct! To solve this problem, we need to calculate the time for each leg of the journey and add them together. First leg: 116,000 ft ÷ (14 mi/hr × 5280 ft/mi) = 116,000 ÷ 73,920 = 1.569 hours. Rest time: 3.56 hours. Second leg: 78,900 ft ÷ (12 mi/hr × 5280 ft/mi) = 78,900 ÷ 63,360 = 1.246 hours. Total time: 1.569 + 3.56 + 1.246 = 6.375 hours. Convert to seconds: 6.375 hours × 3600 seconds/hour = 22,948 seconds = 2.2948 × 10^4 seconds.",
+            3: "Correct! The group name is 'Alkaline Earth Metals' (or Group 2A). The predicted charge is 2+ because all elements in Group 2A form cations with a 2+ charge. Chemical properties include tending to lose electrons in reactions. Physical properties include being good conductors of electricity, solid at room temperature, shiny, and ductile.",
+            4: "Correct! To find the atomic mass, multiply each isotope's mass by its abundance and sum: (308 × 0.7941) + (315 × 0.1012) + (326 × 0.0884) = 244.58 + 31.88 + 28.82 = 305.28 amu. For neutrons: Kantonium-308 has 308 - 151 = 157 neutrons, Kantonium-315 has 315 - 151 = 164 neutrons, Kantonium-326 has 326 - 151 = 175 neutrons. The question asks for the number of neutrons in each isotope, so the answer is 175 (the highest number).",
+            5: "Correct! To find the empirical formula: Convert percentages to grams, then to moles. Ka: 71.14g ÷ 305.28g/mol = 0.233 mol. H: 3.24g ÷ 1.008g/mol = 3.21 mol. O: 25.62g ÷ 16.00g/mol = 1.60 mol. Divide by smallest (0.233): Ka1H13.8O6.9 ≈ KaH14O7. Molar mass of empirical formula: (1×305.28) + (14×1.008) + (7×16.00) = 305.28 + 14.11 + 112.00 = 736.72 g/mol. Molecular formula: 2946.88 ÷ 736.72 = 4, so multiply empirical formula by 4: Ka4H56O28.",
+            6: "Correct! a) Iron (III) Sulfide - since the charge on S is -2, iron must have a 3+ charge. b) Titanium (III) Sulfate - since the charge on SO4 is -2, Ti must have 3+ charge. c) Disodium Hydrogen Phosphate - since there are two sodium, use the prefix di-. The polyatomic ion is called phosphate and the hydrogen is named first. d) FeCl3 - since we are given an iron with a 3+ charge there must be three chlorines because chlorine has a 1- charge. e) SnF4 - since we are given tin with a 4+ charge, there must be four fluorines because fluorine has a 1- charge. f) IF7 - since we are given the prefix hepta- on the fluoride, and hepta means 7.",
+            7: "Correct! Balanced equation: 2C2H6 + 7O2 → 4CO2 + 6H2O. a) Using stoichiometry: 14 mol C2H6 × (4 mol CO2/2 mol C2H6) = 28 mol CO2, but O2 is limiting: 22 mol O2 × (4 mol CO2/7 mol O2) = 12.57 mol CO2. b) 27g C2H6 ÷ 30.07 g/mol = 0.898 mol C2H6. 98g O2 ÷ 32.00 g/mol = 3.06 mol O2. Limiting reactant is C2H6: 0.898 mol × (6 mol H2O/2 mol C2H6) × 18.02 g/mol = 47.25g H2O. c) C2H6 is limiting, O2 is excess. Percent yield = (32.81g/47.25g) × 100% = 69.38%."
         };
 
         function showQuestion(questionNumber) {
-            // Hide all questions
+            // Hide all questions and completion screen
             document.querySelectorAll('.question-container').forEach(container => {
                 container.style.display = 'none';
             });
+            document.getElementById('completion-container').style.display = 'none';
 
             // Show the current question
             const currentQuestionContainer = document.getElementById(`question${questionNumber}`);
@@ -401,13 +695,22 @@
             }
         }
 
+        function showCompletionScreen() {
+            // Hide all questions
+            document.querySelectorAll('.question-container').forEach(container => {
+                container.style.display = 'none';
+            });
+
+            // Show completion screen
+            document.getElementById('completion-container').style.display = 'block';
+        }
+
         function normalizeAnswer(answer) {
             // Remove extra spaces and convert to lowercase for comparison
             return answer.trim().toLowerCase().replace(/\s+/g, '');
         }
 
         function setupQuestionHandlers(questionNumber) {
-            const answerInput = document.getElementById(`answer-input${questionNumber}`);
             const submitButton = document.getElementById(`submit-button${questionNumber}`);
             const feedback = document.getElementById(`feedback${questionNumber === 1 ? '' : questionNumber}`);
             const explanation = document.getElementById(`explanation${questionNumber === 1 ? '' : questionNumber}`);
@@ -417,10 +720,137 @@
             const tryAgainButton = document.getElementById(`try-again-button${questionNumber === 1 ? '' : questionNumber}`);
 
             function checkAnswer() {
-                const userAnswer = normalizeAnswer(answerInput.value);
-                const correctAnswer = normalizeAnswer(correctAnswers[questionNumber]);
+                let isCorrect = false;
 
-                if (userAnswer === correctAnswer) {
+                if (questionNumber === 3) {
+                    // Handle multiple input fields for question 3
+                    const groupInput = document.getElementById('answer-input3-1');
+                    const chargeInput = document.getElementById('answer-input3-2');
+                    const chemicalInput = document.getElementById('answer-input3-3');
+                    const physicalInput = document.getElementById('answer-input3-4');
+
+                    const userGroup = normalizeAnswer(groupInput.value);
+                    const userCharge = normalizeAnswer(chargeInput.value);
+                    const userChemical = normalizeAnswer(chemicalInput.value);
+                    const userPhysical = normalizeAnswer(physicalInput.value);
+
+                    const correctGroup = normalizeAnswer(correctAnswers[3].group);
+                    const correctCharge = normalizeAnswer(correctAnswers[3].charge);
+                    const correctChemical = normalizeAnswer(correctAnswers[3].chemical);
+                    const correctPhysical = normalizeAnswer(correctAnswers[3].physical);
+
+                    // Check if all answers are correct (with some flexibility for chemical/physical properties)
+                    const groupCorrect = userGroup === correctGroup || userGroup.includes('alkaline') || userGroup.includes('earth');
+                    const chargeCorrect = userCharge === correctCharge || userCharge.includes('2');
+                    const chemicalCorrect = userChemical.includes('lose') || userChemical.includes('electron') || userChemical.includes('react');
+                    const physicalCorrect = userPhysical.includes('conduct') || userPhysical.includes('electricity') || userPhysical.includes('metal') || userPhysical.includes('solid') || userPhysical.includes('shiny') || userPhysical.includes('ductile');
+
+                    isCorrect = groupCorrect && chargeCorrect && chemicalCorrect && physicalCorrect;
+                } else if (questionNumber === 4) {
+                    // Handle multiple input fields for question 4
+                    const atomicMassInput = document.getElementById('answer-input4-1');
+                    const neutronsInput = document.getElementById('answer-input4-2');
+
+                    const userAtomicMass = normalizeAnswer(atomicMassInput.value);
+                    const userNeutrons = normalizeAnswer(neutronsInput.value);
+
+                    const correctAtomicMass = normalizeAnswer(correctAnswers[4].atomicMass);
+                    const correctNeutrons = normalizeAnswer(correctAnswers[4].neutrons);
+
+                    // Check if both answers are correct
+                    const atomicMassCorrect = userAtomicMass === correctAtomicMass || userAtomicMass.includes('305');
+                    const neutronsCorrect = userNeutrons === correctNeutrons || userNeutrons.includes('175');
+
+                    isCorrect = atomicMassCorrect && neutronsCorrect;
+                } else if (questionNumber === 5) {
+                    // Handle multiple input fields for question 5
+                    const empiricalInput = document.getElementById('answer-input5-1');
+                    const molarMassInput = document.getElementById('answer-input5-2');
+                    const molecularInput = document.getElementById('answer-input5-3');
+
+                    const userEmpirical = normalizeAnswer(empiricalInput.value);
+                    const userMolarMass = normalizeAnswer(molarMassInput.value);
+                    const userMolecular = normalizeAnswer(molecularInput.value);
+
+                    const correctEmpirical = normalizeAnswer(correctAnswers[5].empirical);
+                    const correctMolarMass = normalizeAnswer(correctAnswers[5].molarMass);
+                    const correctMolecular = normalizeAnswer(correctAnswers[5].molecular);
+
+                    // Check if all answers are correct (with flexibility for formulas)
+                    const empiricalCorrect = userEmpirical === correctEmpirical || userEmpirical.includes('kah14o7') || userEmpirical.includes('kah14o7');
+                    const molarMassCorrect = userMolarMass === correctMolarMass || userMolarMass.includes('736');
+                    const molecularCorrect = userMolecular === correctMolecular || userMolecular.includes('ka4h56o28') || userMolecular.includes('ka4h56o28');
+
+                    isCorrect = empiricalCorrect && molarMassCorrect && molecularCorrect;
+                } else if (questionNumber === 6) {
+                    // Handle multiple input fields for question 6
+                    const inputA = document.getElementById('answer-input6-1');
+                    const inputB = document.getElementById('answer-input6-2');
+                    const inputC = document.getElementById('answer-input6-3');
+                    const inputD = document.getElementById('answer-input6-4');
+                    const inputE = document.getElementById('answer-input6-5');
+                    const inputF = document.getElementById('answer-input6-6');
+
+                    const userA = normalizeAnswer(inputA.value);
+                    const userB = normalizeAnswer(inputB.value);
+                    const userC = normalizeAnswer(inputC.value);
+                    const userD = normalizeAnswer(inputD.value);
+                    const userE = normalizeAnswer(inputE.value);
+                    const userF = normalizeAnswer(inputF.value);
+
+                    const correctA = normalizeAnswer(correctAnswers[6].a);
+                    const correctB = normalizeAnswer(correctAnswers[6].b);
+                    const correctC = normalizeAnswer(correctAnswers[6].c);
+                    const correctD = normalizeAnswer(correctAnswers[6].d);
+                    const correctE = normalizeAnswer(correctAnswers[6].e);
+                    const correctF = normalizeAnswer(correctAnswers[6].f);
+
+                    // Check if all answers are correct (with flexibility for naming)
+                    const aCorrect = userA === correctA || userA.includes('iron') && userA.includes('sulfide');
+                    const bCorrect = userB === correctB || userB.includes('titanium') && userB.includes('sulfate');
+                    const cCorrect = userC === correctC || userC.includes('disodium') && userC.includes('phosphate');
+                    const dCorrect = userD === correctD || userD.includes('fecl3');
+                    const eCorrect = userE === correctE || userE.includes('snf4');
+                    const fCorrect = userF === correctF || userF.includes('if7');
+
+                    isCorrect = aCorrect && bCorrect && cCorrect && dCorrect && eCorrect && fCorrect;
+                } else if (questionNumber === 7) {
+                    // Handle multiple input fields for question 7
+                    const equationInput = document.getElementById('answer-input7-1');
+                    const molesCO2Input = document.getElementById('answer-input7-2');
+                    const gramsH2OInput = document.getElementById('answer-input7-3');
+                    const limitingInput = document.getElementById('answer-input7-4');
+                    const percentYieldInput = document.getElementById('answer-input7-5');
+
+                    const userEquation = normalizeAnswer(equationInput.value);
+                    const userMolesCO2 = normalizeAnswer(molesCO2Input.value);
+                    const userGramsH2O = normalizeAnswer(gramsH2OInput.value);
+                    const userLimiting = normalizeAnswer(limitingInput.value);
+                    const userPercentYield = normalizeAnswer(percentYieldInput.value);
+
+                    const correctEquation = normalizeAnswer(correctAnswers[7].equation);
+                    const correctMolesCO2 = normalizeAnswer(correctAnswers[7].molesCO2);
+                    const correctGramsH2O = normalizeAnswer(correctAnswers[7].gramsH2O);
+                    const correctLimiting = normalizeAnswer(correctAnswers[7].limiting);
+                    const correctPercentYield = normalizeAnswer(correctAnswers[7].percentYield);
+
+                    // Check if all answers are correct (with flexibility)
+                    const equationCorrect = userEquation === correctEquation || userEquation.includes('2c2h6') && userEquation.includes('7o2');
+                    const molesCO2Correct = userMolesCO2 === correctMolesCO2 || userMolesCO2.includes('12.57');
+                    const gramsH2OCorrect = userGramsH2O === correctGramsH2O || userGramsH2O.includes('47.25');
+                    const limitingCorrect = userLimiting === correctLimiting || userLimiting.includes('ethane') || userLimiting.includes('c2h6');
+                    const percentYieldCorrect = userPercentYield === correctPercentYield || userPercentYield.includes('69.38');
+
+                    isCorrect = equationCorrect && molesCO2Correct && gramsH2OCorrect && limitingCorrect && percentYieldCorrect;
+                } else {
+                    // Handle single input for questions 1 and 2
+                    const answerInput = document.getElementById(`answer-input${questionNumber}`);
+                    const userAnswer = normalizeAnswer(answerInput.value);
+                    const correctAnswer = normalizeAnswer(correctAnswers[questionNumber]);
+                    isCorrect = userAnswer === correctAnswer;
+                }
+
+                if (isCorrect) {
                     // Correct answer
                     feedback.textContent = "That's Super Effective!";
                     feedback.classList.remove('incorrect');
@@ -431,12 +861,45 @@
                     explanation.classList.remove('hidden');
 
                     if (questionNumber < totalQuestions) {
-                        nextButton.classList.remove('hidden');
+                        if (questionNumber === 7) {
+                            // Show completion screen for the final question
+                            showCompletionScreen();
+                        } else {
+                            nextButton.classList.remove('hidden');
+                        }
                     }
                     actionButtons.classList.remove('hidden');
 
-                    // Disable input and submit button
-                    answerInput.disabled = true;
+                    // Disable all inputs and submit button
+                    if (questionNumber === 3) {
+                        document.getElementById('answer-input3-1').disabled = true;
+                        document.getElementById('answer-input3-2').disabled = true;
+                        document.getElementById('answer-input3-3').disabled = true;
+                        document.getElementById('answer-input3-4').disabled = true;
+                    } else if (questionNumber === 4) {
+                        document.getElementById('answer-input4-1').disabled = true;
+                        document.getElementById('answer-input4-2').disabled = true;
+                    } else if (questionNumber === 5) {
+                        document.getElementById('answer-input5-1').disabled = true;
+                        document.getElementById('answer-input5-2').disabled = true;
+                        document.getElementById('answer-input5-3').disabled = true;
+                    } else if (questionNumber === 6) {
+                        document.getElementById('answer-input6-1').disabled = true;
+                        document.getElementById('answer-input6-2').disabled = true;
+                        document.getElementById('answer-input6-3').disabled = true;
+                        document.getElementById('answer-input6-4').disabled = true;
+                        document.getElementById('answer-input6-5').disabled = true;
+                        document.getElementById('answer-input6-6').disabled = true;
+                    } else if (questionNumber === 7) {
+                        document.getElementById('answer-input7-1').disabled = true;
+                        document.getElementById('answer-input7-2').disabled = true;
+                        document.getElementById('answer-input7-3').disabled = true;
+                        document.getElementById('answer-input7-4').disabled = true;
+                        document.getElementById('answer-input7-5').disabled = true;
+                    } else {
+                        const answerInput = document.getElementById(`answer-input${questionNumber}`);
+                        answerInput.disabled = true;
+                    }
                     submitButton.disabled = true;
                 } else {
                     // Wrong answer
@@ -459,16 +922,133 @@
 
             submitButton.addEventListener('click', checkAnswer);
 
-            answerInput.addEventListener('keypress', function (e) {
-                if (e.key === 'Enter') {
-                    checkAnswer();
-                }
-            });
+            // Add Enter key support for all inputs
+            if (questionNumber === 3) {
+                document.getElementById('answer-input3-1').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input3-2').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input3-3').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input3-4').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+            } else if (questionNumber === 4) {
+                document.getElementById('answer-input4-1').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input4-2').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+            } else if (questionNumber === 5) {
+                document.getElementById('answer-input5-1').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input5-2').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input5-3').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+            } else if (questionNumber === 6) {
+                document.getElementById('answer-input6-1').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input6-2').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input6-3').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input6-4').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input6-5').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input6-6').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+            } else if (questionNumber === 7) {
+                document.getElementById('answer-input7-1').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input7-2').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input7-3').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input7-4').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input7-5').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+            } else {
+                const answerInput = document.getElementById(`answer-input${questionNumber}`);
+                answerInput.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') {
+                        checkAnswer();
+                    }
+                });
+            }
 
             tryAgainButton.addEventListener('click', function () {
                 // Reset everything
-                answerInput.value = '';
-                answerInput.disabled = false;
+                if (questionNumber === 3) {
+                    document.getElementById('answer-input3-1').value = '';
+                    document.getElementById('answer-input3-2').value = '';
+                    document.getElementById('answer-input3-3').value = '';
+                    document.getElementById('answer-input3-4').value = '';
+                    document.getElementById('answer-input3-1').disabled = false;
+                    document.getElementById('answer-input3-2').disabled = false;
+                    document.getElementById('answer-input3-3').disabled = false;
+                    document.getElementById('answer-input3-4').disabled = false;
+                } else if (questionNumber === 4) {
+                    document.getElementById('answer-input4-1').value = '';
+                    document.getElementById('answer-input4-2').value = '';
+                    document.getElementById('answer-input4-1').disabled = false;
+                    document.getElementById('answer-input4-2').disabled = false;
+                } else if (questionNumber === 5) {
+                    document.getElementById('answer-input5-1').value = '';
+                    document.getElementById('answer-input5-2').value = '';
+                    document.getElementById('answer-input5-3').value = '';
+                    document.getElementById('answer-input5-1').disabled = false;
+                    document.getElementById('answer-input5-2').disabled = false;
+                    document.getElementById('answer-input5-3').disabled = false;
+                } else if (questionNumber === 6) {
+                    document.getElementById('answer-input6-1').value = '';
+                    document.getElementById('answer-input6-2').value = '';
+                    document.getElementById('answer-input6-3').value = '';
+                    document.getElementById('answer-input6-4').value = '';
+                    document.getElementById('answer-input6-5').value = '';
+                    document.getElementById('answer-input6-6').value = '';
+                    document.getElementById('answer-input6-1').disabled = false;
+                    document.getElementById('answer-input6-2').disabled = false;
+                    document.getElementById('answer-input6-3').disabled = false;
+                    document.getElementById('answer-input6-4').disabled = false;
+                    document.getElementById('answer-input6-5').disabled = false;
+                    document.getElementById('answer-input6-6').disabled = false;
+                } else if (questionNumber === 7) {
+                    document.getElementById('answer-input7-1').value = '';
+                    document.getElementById('answer-input7-2').value = '';
+                    document.getElementById('answer-input7-3').value = '';
+                    document.getElementById('answer-input7-4').value = '';
+                    document.getElementById('answer-input7-5').value = '';
+                    document.getElementById('answer-input7-1').disabled = false;
+                    document.getElementById('answer-input7-2').disabled = false;
+                    document.getElementById('answer-input7-3').disabled = false;
+                    document.getElementById('answer-input7-4').disabled = false;
+                    document.getElementById('answer-input7-5').disabled = false;
+                } else {
+                    const answerInput = document.getElementById(`answer-input${questionNumber}`);
+                    answerInput.value = '';
+                    answerInput.disabled = false;
+                }
                 submitButton.disabled = false;
                 feedback.classList.add('hidden');
                 explanation.classList.add('hidden');
@@ -476,6 +1056,20 @@
                 actionButtons.classList.add('hidden');
                 nextButton.classList.add('hidden');
                 tryAgainButton.classList.add('hidden');
+            });
+
+            // Add skip functionality
+            const skipButton = document.getElementById(`skip-button${questionNumber}`);
+            skipButton.addEventListener('click', function () {
+                if (questionNumber === 7) {
+                    // Skip to completion screen for the final question
+                    showCompletionScreen();
+                } else if (questionNumber < totalQuestions) {
+                    currentQuestion = questionNumber + 1;
+                    showQuestion(currentQuestion);
+                    // Reset wrong attempts for the new question
+                    wrongAttempts[currentQuestion] = 0;
+                }
             });
 
             nextButton.addEventListener('click', function () {
@@ -492,6 +1086,18 @@
         showQuestion(1);
         setupQuestionHandlers(1);
         setupQuestionHandlers(2);
+        setupQuestionHandlers(3);
+        setupQuestionHandlers(4);
+        setupQuestionHandlers(5);
+        setupQuestionHandlers(6);
+        setupQuestionHandlers(7);
+
+        // Add restart button functionality
+        document.getElementById('restart-button').addEventListener('click', function () {
+            currentQuestion = 1;
+            wrongAttempts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0 };
+            showQuestion(1);
+        });
     </script>
 </body>
 
