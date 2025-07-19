@@ -17,10 +17,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            overflow-y: auto;
+            padding: 20px 0;
         }
 
         /* Animated background particles */
@@ -97,7 +98,7 @@
         .back-button {
             display: inline-block;
             padding: 15px 30px;
-            background: linear-gradient(135deg, rgba(107, 156, 255, 0.3), rgba(107, 156, 255, 0.2));
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 107, 107, 0.2));
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 15px;
             color: #fff;
@@ -111,8 +112,189 @@
 
         .back-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(107, 156, 255, 0.3);
-            background: linear-gradient(135deg, rgba(107, 156, 255, 0.4), rgba(107, 156, 255, 0.3));
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.4), rgba(255, 107, 107, 0.3));
+        }
+
+        .question-container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+
+        .question-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .answer-input-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .answer-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .answer-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .submit-button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, rgba(107, 255, 156, 0.3), rgba(107, 255, 156, 0.2));
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(107, 255, 156, 0.4), rgba(107, 255, 156, 0.3));
+        }
+
+        .hint-container {
+            background: rgba(255, 193, 7, 0.1);
+            border: 2px solid rgba(255, 193, 7, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #fff;
+        }
+
+        .hint-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .hint-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .feedback-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .feedback-message.correct {
+            color: #00ff88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .feedback-message.incorrect {
+            color: #ff6b6b;
+        }
+
+        .explanation {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            padding: 12px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .action-button:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .action-button.next {
+            background: linear-gradient(135deg, rgba(107, 255, 156, 0.3), rgba(107, 255, 156, 0.2));
+        }
+
+        .action-button.try-again {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.3), rgba(255, 193, 7, 0.2));
+        }
+
+        .action-button.skip {
+            background: linear-gradient(135deg, rgba(108, 117, 125, 0.3), rgba(108, 117, 125, 0.2));
+            margin-left: 10px;
+        }
+
+        .completion-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .completion-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .completion-buttons .action-button {
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .hidden {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -121,7 +303,8 @@
                 margin-bottom: 40px;
             }
 
-            .chapter-content {
+            .chapter-content,
+            .question-container {
                 margin: 20px;
                 padding: 30px;
             }
@@ -132,6 +315,16 @@
 
             .chapter-description {
                 font-size: 1rem;
+            }
+
+            .answer-input {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -145,11 +338,380 @@
         <p class="chapter-description">
             Welcome to Chapter 7 of your Pokémon adventure! This is the final chapter of your journey,
             where you'll face the ultimate challenges and discover the true meaning of being a Pokémon trainer.
+            You're studying to become Professor Oak's lab assistant, and today you're taking a practice test that covers
+            Chapter 7 of General Chemistry.
+            You upgrade the Pokédex, so that it comes with a spectrometer and quantum calculator.
             The climactic battles and revelations await as you reach the pinnacle of your quest.
         </p>
     </div>
 
+    <div class="question-container" id="question1">
+        <h2 class="question-title">Chapter 7: Question 1</h2>
+        <p class="question-text">Given a light with frequency 6.71 x 10^4 s^-1, calculate the wavelength in nm. From the
+            calculated wavelength, what region of the electromagnetic spectrum would the light be in? Calculate the
+            energy of a photon from the given frequency.</p>
+
+        <div class="answer-input-container">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Wavelength (nm):</label>
+                <input type="text" class="answer-input" id="answer-input1-1"
+                    placeholder="Enter wavelength in nm (e.g., 447)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Electromagnetic region:</label>
+                <input type="text" class="answer-input" id="answer-input1-2" placeholder="Enter region (e.g., visible)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Energy of photon (J):</label>
+                <input type="text" class="answer-input" id="answer-input1-3"
+                    placeholder="Enter energy in scientific notation (e.g., 4.45 x 10^-19)">
+            </div>
+            <button class="submit-button" id="submit-button1">Submit Answer</button>
+            <button class="action-button skip" id="skip-button1">Skip Question</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback"></div>
+        <div class="explanation hidden" id="explanation"></div>
+        <div class="hint-container hidden" id="hint-container1">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons">
+            <button class="action-button next hidden" id="next-button">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button">Try Again</button>
+        </div>
+    </div>
+
+    <div class="question-container" id="question2" style="display: none;">
+        <h2 class="question-title">Chapter 7: Question 2</h2>
+        <p class="question-text">Given the quantum numbers: 4, 3, 0</p>
+        <p class="question-text">What is the energy level for this electron? What type of subshell is represented and
+            how many orbitals are in this subshell?</p>
+        <p class="question-text">What are all the possible values of Ml?</p>
+        <p class="question-text">Name an element that could have this set of quantum numbers.</p>
+
+        <div class="answer-input-container">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Energy level:</label>
+                <input type="text" class="answer-input" id="answer-input2-1" placeholder="Enter energy level (e.g., 4)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Subshell type:</label>
+                <input type="text" class="answer-input" id="answer-input2-2" placeholder="Enter subshell (e.g., f)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Number of orbitals:</label>
+                <input type="text" class="answer-input" id="answer-input2-3"
+                    placeholder="Enter number of orbitals (e.g., 7)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Ml values:</label>
+                <input type="text" class="answer-input" id="answer-input2-4"
+                    placeholder="Enter all ml values (e.g., 3, 2, 1, 0, -1, -2, -3)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Element name:</label>
+                <input type="text" class="answer-input" id="answer-input2-5"
+                    placeholder="Enter element name (e.g., holmium)">
+            </div>
+            <button class="submit-button" id="submit-button2">Submit Answer</button>
+            <button class="action-button skip" id="skip-button2">Skip Question</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback2"></div>
+        <div class="explanation hidden" id="explanation2"></div>
+        <div class="hint-container hidden" id="hint-container2">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons2">
+            <button class="action-button next hidden" id="next-button2">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button2">Try Again</button>
+        </div>
+    </div>
+
+    <div class="completion-container" id="completion-container" style="display: none;">
+        <div class="chapter-content">
+            <h1 class="chapter-title">🎉 Congratulations! 🎉</h1>
+            <p class="chapter-description">
+                You have successfully completed Chapter 7! You've mastered advanced chemistry concepts
+                and are now ready to take on the ultimate challenges. Your knowledge of quantum mechanics,
+                electromagnetic spectrum, and advanced calculations will serve you well in your continued studies.
+            </p>
+            <div class="completion-buttons">
+                <a href="index.html" class="action-button">🏠 Go Home</a>
+                <button class="action-button" id="restart-button">🔄 Restart</button>
+            </div>
+        </div>
+    </div>
+
     <a href="index.html" class="back-button">Back to Main Menu</a>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 2;
+        let wrongAttempts = { 1: 0, 2: 0 };
+
+        const correctAnswers = {
+            1: {
+                wavelength: "447",
+                region: "visible",
+                energy: "4.45 x 10^-19"
+            },
+            2: {
+                energyLevel: "4",
+                subshell: "f",
+                orbitals: "7",
+                mlValues: "3, 2, 1, 0, -1, -2, -3",
+                element: "holmium"
+            }
+        };
+
+        const explanations = {
+            1: "Correct! To solve this problem: 1) Calculate wavelength using λ = c/ν = (3.00 × 10^8 m/s) ÷ (6.71 × 10^4 s^-1) = 4.47 × 10^3 m = 447 nm. 2) Since 447 nm falls between 400-750 nm, it's in the visible region. 3) Calculate energy using E = hν = (6.626 × 10^-34 J·s)(6.71 × 10^4 s^-1) = 4.45 × 10^-19 J.",
+            2: "Correct! Given quantum numbers (4, 3, 0): 1) Energy level = n = 4. 2) l = 3 corresponds to f-subshell (4f), which has 7 orbitals (2l + 1 = 2(3) + 1 = 7). 3) For l = 3, ml values range from -3 to +3: 3, 2, 1, 0, -1, -2, -3. 4) Elements with 4f electrons include lanthanides like Holmium (Ho), Erbium (Er), Thulium (Tm), etc."
+        };
+
+        function showQuestion(questionNumber) {
+            // Hide all questions and completion screen
+            document.querySelectorAll('.question-container').forEach(container => {
+                container.style.display = 'none';
+            });
+            document.getElementById('completion-container').style.display = 'none';
+
+            // Show the current question
+            const currentQuestionContainer = document.getElementById(`question${questionNumber}`);
+            if (currentQuestionContainer) {
+                currentQuestionContainer.style.display = 'block';
+            }
+        }
+
+        function showCompletionScreen() {
+            // Hide all questions
+            document.querySelectorAll('.question-container').forEach(container => {
+                container.style.display = 'none';
+            });
+
+            // Show completion screen
+            document.getElementById('completion-container').style.display = 'block';
+        }
+
+        function normalizeAnswer(answer) {
+            // Remove extra spaces and convert to lowercase for comparison
+            return answer.trim().toLowerCase().replace(/\s+/g, '');
+        }
+
+        function setupQuestionHandlers(questionNumber) {
+            const submitButton = document.getElementById(`submit-button${questionNumber}`);
+            const feedback = document.getElementById(`feedback${questionNumber === 1 ? '' : questionNumber}`);
+            const explanation = document.getElementById(`explanation${questionNumber === 1 ? '' : questionNumber}`);
+            const hintContainer = document.getElementById(`hint-container${questionNumber}`);
+            const actionButtons = document.getElementById(`action-buttons${questionNumber === 1 ? '' : questionNumber}`);
+            const nextButton = document.getElementById(`next-button${questionNumber === 1 ? '' : questionNumber}`);
+            const tryAgainButton = document.getElementById(`try-again-button${questionNumber === 1 ? '' : questionNumber}`);
+
+            function checkAnswer() {
+                let isCorrect = false;
+
+                if (questionNumber === 1) {
+                    // Handle multiple input fields for question 1
+                    const wavelengthInput = document.getElementById('answer-input1-1');
+                    const regionInput = document.getElementById('answer-input1-2');
+                    const energyInput = document.getElementById('answer-input1-3');
+
+                    const userWavelength = normalizeAnswer(wavelengthInput.value);
+                    const userRegion = normalizeAnswer(regionInput.value);
+                    const userEnergy = normalizeAnswer(energyInput.value);
+
+                    const correctWavelength = normalizeAnswer(correctAnswers[1].wavelength);
+                    const correctRegion = normalizeAnswer(correctAnswers[1].region);
+                    const correctEnergy = normalizeAnswer(correctAnswers[1].energy);
+
+                    // Check if all answers are correct (with flexibility)
+                    const wavelengthCorrect = userWavelength === correctWavelength || userWavelength.includes('447');
+                    const regionCorrect = userRegion === correctRegion || userRegion.includes('visible');
+                    const energyCorrect = userEnergy === correctEnergy || userEnergy.includes('4.45') && userEnergy.includes('10^-19');
+
+                    isCorrect = wavelengthCorrect && regionCorrect && energyCorrect;
+                } else if (questionNumber === 2) {
+                    // Handle multiple input fields for question 2
+                    const energyLevelInput = document.getElementById('answer-input2-1');
+                    const subshellInput = document.getElementById('answer-input2-2');
+                    const orbitalsInput = document.getElementById('answer-input2-3');
+                    const mlValuesInput = document.getElementById('answer-input2-4');
+                    const elementInput = document.getElementById('answer-input2-5');
+
+                    const userEnergyLevel = normalizeAnswer(energyLevelInput.value);
+                    const userSubshell = normalizeAnswer(subshellInput.value);
+                    const userOrbitals = normalizeAnswer(orbitalsInput.value);
+                    const userMlValues = normalizeAnswer(mlValuesInput.value);
+                    const userElement = normalizeAnswer(elementInput.value);
+
+                    const correctEnergyLevel = normalizeAnswer(correctAnswers[2].energyLevel);
+                    const correctSubshell = normalizeAnswer(correctAnswers[2].subshell);
+                    const correctOrbitals = normalizeAnswer(correctAnswers[2].orbitals);
+                    const correctMlValues = normalizeAnswer(correctAnswers[2].mlValues);
+                    const correctElement = normalizeAnswer(correctAnswers[2].element);
+
+                    // Check if all answers are correct (with flexibility)
+                    const energyLevelCorrect = userEnergyLevel === correctEnergyLevel || userEnergyLevel.includes('4');
+                    const subshellCorrect = userSubshell === correctSubshell || userSubshell.includes('f');
+                    const orbitalsCorrect = userOrbitals === correctOrbitals || userOrbitals.includes('7');
+                    const mlValuesCorrect = userMlValues === correctMlValues || (userMlValues.includes('3') && userMlValues.includes('-3'));
+                    const elementCorrect = userElement === correctElement || userElement.includes('holmium') || userElement.includes('erbium') || userElement.includes('thulium');
+
+                    isCorrect = energyLevelCorrect && subshellCorrect && orbitalsCorrect && mlValuesCorrect && elementCorrect;
+                }
+
+                if (isCorrect) {
+                    // Correct answer
+                    feedback.textContent = "That's Super Effective!";
+                    feedback.classList.remove('incorrect');
+                    feedback.classList.add('correct');
+                    feedback.classList.remove('hidden');
+
+                    explanation.textContent = explanations[questionNumber];
+                    explanation.classList.remove('hidden');
+
+                    if (questionNumber === 2) {
+                        // Show completion screen for the final question
+                        showCompletionScreen();
+                    } else {
+                        nextButton.classList.remove('hidden');
+                    }
+                    actionButtons.classList.remove('hidden');
+
+                    // Disable all inputs and submit button
+                    if (questionNumber === 1) {
+                        document.getElementById('answer-input1-1').disabled = true;
+                        document.getElementById('answer-input1-2').disabled = true;
+                        document.getElementById('answer-input1-3').disabled = true;
+                    } else if (questionNumber === 2) {
+                        document.getElementById('answer-input2-1').disabled = true;
+                        document.getElementById('answer-input2-2').disabled = true;
+                        document.getElementById('answer-input2-3').disabled = true;
+                        document.getElementById('answer-input2-4').disabled = true;
+                        document.getElementById('answer-input2-5').disabled = true;
+                    }
+                    submitButton.disabled = true;
+                } else {
+                    // Wrong answer
+                    wrongAttempts[questionNumber]++;
+
+                    feedback.textContent = "That's Not Super Effective!";
+                    feedback.classList.remove('correct');
+                    feedback.classList.add('incorrect');
+                    feedback.classList.remove('hidden');
+
+                    // Show hint after 2 wrong attempts
+                    if (wrongAttempts[questionNumber] >= 2) {
+                        hintContainer.classList.remove('hidden');
+                    }
+
+                    tryAgainButton.classList.remove('hidden');
+                    actionButtons.classList.remove('hidden');
+                }
+            }
+
+            submitButton.addEventListener('click', checkAnswer);
+
+            // Add Enter key support for all inputs
+            if (questionNumber === 1) {
+                document.getElementById('answer-input1-1').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input1-2').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input1-3').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+            } else if (questionNumber === 2) {
+                document.getElementById('answer-input2-1').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input2-2').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input2-3').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input2-4').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input2-5').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+            }
+
+            tryAgainButton.addEventListener('click', function () {
+                // Reset everything
+                if (questionNumber === 1) {
+                    document.getElementById('answer-input1-1').value = '';
+                    document.getElementById('answer-input1-2').value = '';
+                    document.getElementById('answer-input1-3').value = '';
+                    document.getElementById('answer-input1-1').disabled = false;
+                    document.getElementById('answer-input1-2').disabled = false;
+                    document.getElementById('answer-input1-3').disabled = false;
+                } else if (questionNumber === 2) {
+                    document.getElementById('answer-input2-1').value = '';
+                    document.getElementById('answer-input2-2').value = '';
+                    document.getElementById('answer-input2-3').value = '';
+                    document.getElementById('answer-input2-4').value = '';
+                    document.getElementById('answer-input2-5').value = '';
+                    document.getElementById('answer-input2-1').disabled = false;
+                    document.getElementById('answer-input2-2').disabled = false;
+                    document.getElementById('answer-input2-3').disabled = false;
+                    document.getElementById('answer-input2-4').disabled = false;
+                    document.getElementById('answer-input2-5').disabled = false;
+                }
+                submitButton.disabled = false;
+                feedback.classList.add('hidden');
+                explanation.classList.add('hidden');
+                hintContainer.classList.add('hidden');
+                actionButtons.classList.add('hidden');
+                nextButton.classList.add('hidden');
+                tryAgainButton.classList.add('hidden');
+            });
+
+            // Add skip functionality
+            const skipButton = document.getElementById(`skip-button${questionNumber}`);
+            skipButton.addEventListener('click', function () {
+                if (questionNumber === 2) {
+                    // Skip to completion screen for the final question
+                    showCompletionScreen();
+                } else if (questionNumber < totalQuestions) {
+                    currentQuestion = questionNumber + 1;
+                    showQuestion(currentQuestion);
+                    // Reset wrong attempts for the new question
+                    wrongAttempts[currentQuestion] = 0;
+                }
+            });
+
+            nextButton.addEventListener('click', function () {
+                if (questionNumber < totalQuestions) {
+                    currentQuestion = questionNumber + 1;
+                    showQuestion(currentQuestion);
+                    // Reset wrong attempts for the new question
+                    wrongAttempts[currentQuestion] = 0;
+                }
+            });
+        }
+
+        // Initialize the first question
+        showQuestion(1);
+        setupQuestionHandlers(1);
+        setupQuestionHandlers(2);
+
+        // Add restart button functionality
+        document.getElementById('restart-button').addEventListener('click', function () {
+            currentQuestion = 1;
+            wrongAttempts = { 1: 0, 2: 0 };
+            showQuestion(1);
+        });
+    </script>
 </body>
 
 </html>
