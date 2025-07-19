@@ -444,6 +444,99 @@
         </div>
     </div>
 
+    <div class="question-container" id="question4" style="display: none;">
+        <h2 class="question-title">Chapter 6: Question 1</h2>
+        <p class="question-text">Freeze-dry is a move that is super effective on water type Pokémon. Scald is a
+            water-type move that may leave its target with a burn. Identify freezing and vaporization as exothermic or
+            endothermic.</p>
+
+        <div class="answer-input-container">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Freezing:</label>
+                <input type="text" class="answer-input" id="answer-input4-1"
+                    placeholder="Enter exothermic or endothermic">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Vaporization:</label>
+                <input type="text" class="answer-input" id="answer-input4-2"
+                    placeholder="Enter exothermic or endothermic">
+            </div>
+            <button class="submit-button" id="submit-button4">Submit Answer</button>
+            <button class="action-button skip" id="skip-button4">Skip Question</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback4"></div>
+        <div class="explanation hidden" id="explanation4"></div>
+        <div class="hint-container hidden" id="hint-container4">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons4">
+            <button class="action-button next hidden" id="next-button4">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button4">Try Again</button>
+        </div>
+    </div>
+
+    <div class="question-container" id="question5" style="display: none;">
+        <h2 class="question-title">Chapter 6: Question 2</h2>
+        <p class="question-text">A Casteliacone from the Unova region contains 245 Calories per cone. Find the amount in
+            joules in 3 Casteliacones. If you want to burn off the Calories by jogging, how many minutes do you need to
+            jog given that you burn 201 Cal / hr?</p>
+
+        <div class="answer-input-container">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Amount in joules:</label>
+                <input type="text" class="answer-input" id="answer-input5-1"
+                    placeholder="Enter answer in scientific notation (e.g., 3.07 x 10^6)">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Minutes to jog:</label>
+                <input type="text" class="answer-input" id="answer-input5-2" placeholder="Enter minutes (e.g., 219)">
+            </div>
+            <button class="submit-button" id="submit-button5">Submit Answer</button>
+            <button class="action-button skip" id="skip-button5">Skip Question</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback5"></div>
+        <div class="explanation hidden" id="explanation5"></div>
+        <div class="hint-container hidden" id="hint-container5">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons5">
+            <button class="action-button next hidden" id="next-button5">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button5">Try Again</button>
+        </div>
+    </div>
+
+    <div class="question-container" id="question6" style="display: none;">
+        <h2 class="question-title">Chapter 6: Question 3</h2>
+        <p class="question-text">Green tea can be given to the guards in Saffron City to gain access to the city. If 195
+            cm3 of 96.2 ˚C tea is poured into a 135 g glass cup at 23.3 ˚C, what is the heat lost by the tea when
+            equilibrium is reached? (Tea is mostly water)</p>
+
+        <div class="answer-input-container">
+            <input type="text" class="answer-input" id="answer-input6"
+                placeholder="Enter your answer in degrees Celsius (e.g., 8.9)">
+            <button class="submit-button" id="submit-button6">Submit Answer</button>
+            <button class="action-button skip" id="skip-button6">Skip Question</button>
+        </div>
+
+        <div class="feedback-message hidden" id="feedback6"></div>
+        <div class="explanation hidden" id="explanation6"></div>
+        <div class="hint-container hidden" id="hint-container6">
+            <div class="hint-title">💡 Hint</div>
+            <div class="hint-text">The hint will be</div>
+        </div>
+
+        <div class="action-buttons hidden" id="action-buttons6">
+            <button class="action-button next hidden" id="next-button6">Next Question</button>
+            <button class="action-button try-again hidden" id="try-again-button6">Try Again</button>
+        </div>
+    </div>
+
     <div class="completion-container" id="completion-container" style="display: none;">
         <div class="chapter-content">
             <h1 class="chapter-title">🎉 Congratulations! 🎉</h1>
@@ -464,8 +557,8 @@
 
     <script>
         let currentQuestion = 1;
-        const totalQuestions = 3;
-        let wrongAttempts = { 1: 0, 2: 0, 3: 0 };
+        const totalQuestions = 6;
+        let wrongAttempts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
 
         const correctAnswers = {
             1: {
@@ -475,13 +568,25 @@
                 naoh: "strong electrolyte"
             },
             2: "211",
-            3: "1.426"
+            3: "1.426",
+            4: {
+                freezing: "exothermic",
+                vaporization: "endothermic"
+            },
+            5: {
+                joules: "3.07 x 10^6",
+                minutes: "219"
+            },
+            6: "8.9"
         };
 
         const explanations = {
             1: "Correct! Water from Melemele Sea is a strong electrolyte because it contains dissolved ions and conducts electricity well. H3PO4 (phosphoric acid) is a weak electrolyte because it partially dissociates in water. CH3OH (methanol) is a non-electrolyte because it doesn't dissociate into ions in water. NaOH (sodium hydroxide) is a strong electrolyte because it completely dissociates into Na+ and OH- ions in water.",
             2: "Correct! To solve this problem, use the formula: Molarity = moles of solute / liters of solution. Rearranging: moles of solute = Molarity × liters of solution. Moles = 0.349 M × 1.51 L = 0.527 moles. Then convert moles to grams: grams = moles × molar mass = 0.527 moles × 401.258 g/mol = 211.46 g ≈ 211 g KaHPO4.",
-            3: "Correct! First, write the balanced equation: 2JOH + H2SO4 → J2SO4 + 2H2O. From the balanced equation, 2 moles of JOH react with 1 mole of H2SO4. Calculate moles of H2SO4: 0.3576 M × 0.03500 L = 0.01252 moles H2SO4. Using the stoichiometry: 0.01252 moles H2SO4 × (2 moles JOH/1 mole H2SO4) = 0.02504 moles JOH. Calculate molarity of JOH: 0.02504 moles ÷ 0.01756 L = 1.426 M JOH."
+            3: "Correct! First, write the balanced equation: 2JOH + H2SO4 → J2SO4 + 2H2O. From the balanced equation, 2 moles of JOH react with 1 mole of H2SO4. Calculate moles of H2SO4: 0.3576 M × 0.03500 L = 0.01252 moles H2SO4. Using the stoichiometry: 0.01252 moles H2SO4 × (2 moles JOH/1 mole H2SO4) = 0.02504 moles JOH. Calculate molarity of JOH: 0.02504 moles ÷ 0.01756 L = 1.426 M JOH.",
+            4: "Correct! Freezing is exothermic because when a liquid freezes, it releases heat to the surroundings as the particles slow down and form a more ordered solid structure. Vaporization is endothermic because when a liquid vaporizes, it absorbs heat from the surroundings as the particles gain energy to break free from the liquid phase and become a gas.",
+            5: "Correct! First, convert Calories to joules: 245 Calories × 4.184 J/Cal = 1025.08 J per cone. For 3 cones: 1025.08 J × 3 = 3075.24 J = 3.07 × 10^6 J. For the jogging time: Total Calories = 245 × 3 = 735 Calories. Time = 735 Calories ÷ 201 Cal/hr = 3.66 hours = 219 minutes.",
+            6: "Correct! This is a heat transfer problem where the tea and cup reach thermal equilibrium. The heat lost by the tea equals the heat gained by the cup. Using q = mcΔT: For the tea (water): q = (195 g)(4.184 J/g°C)(Tf - 96.2°C). For the glass cup: q = (135 g)(0.84 J/g°C)(Tf - 23.3°C). Setting them equal: (195)(4.184)(Tf - 96.2) = (135)(0.84)(Tf - 23.3). Solving for Tf gives the final temperature, and the heat lost by tea is the temperature change: 96.2°C - Tf = 8.9°C."
         };
 
         function showQuestion(questionNumber) {
@@ -561,6 +666,44 @@
                     const userAnswer = normalizeAnswer(answerInput.value);
                     const correctAnswer = normalizeAnswer(correctAnswers[questionNumber]);
                     isCorrect = userAnswer === correctAnswer || userAnswer.includes('1.426');
+                } else if (questionNumber === 4) {
+                    // Handle multiple input fields for question 4
+                    const freezingInput = document.getElementById('answer-input4-1');
+                    const vaporizationInput = document.getElementById('answer-input4-2');
+
+                    const userFreezing = normalizeAnswer(freezingInput.value);
+                    const userVaporization = normalizeAnswer(vaporizationInput.value);
+
+                    const correctFreezing = normalizeAnswer(correctAnswers[4].freezing);
+                    const correctVaporization = normalizeAnswer(correctAnswers[4].vaporization);
+
+                    // Check if all answers are correct (with flexibility)
+                    const freezingCorrect = userFreezing === correctFreezing || userFreezing.includes('exothermic');
+                    const vaporizationCorrect = userVaporization === correctVaporization || userVaporization.includes('endothermic');
+
+                    isCorrect = freezingCorrect && vaporizationCorrect;
+                } else if (questionNumber === 5) {
+                    // Handle multiple input fields for question 5
+                    const joulesInput = document.getElementById('answer-input5-1');
+                    const minutesInput = document.getElementById('answer-input5-2');
+
+                    const userJoules = normalizeAnswer(joulesInput.value);
+                    const userMinutes = normalizeAnswer(minutesInput.value);
+
+                    const correctJoules = normalizeAnswer(correctAnswers[5].joules);
+                    const correctMinutes = normalizeAnswer(correctAnswers[5].minutes);
+
+                    // Check if all answers are correct (with flexibility)
+                    const joulesCorrect = userJoules === correctJoules || userJoules.includes('3.07') && userJoules.includes('10^6');
+                    const minutesCorrect = userMinutes === correctMinutes || userMinutes.includes('219');
+
+                    isCorrect = joulesCorrect && minutesCorrect;
+                } else {
+                    // Handle single input for question 6
+                    const answerInput = document.getElementById(`answer-input${questionNumber}`);
+                    const userAnswer = normalizeAnswer(answerInput.value);
+                    const correctAnswer = normalizeAnswer(correctAnswers[questionNumber]);
+                    isCorrect = userAnswer === correctAnswer || userAnswer.includes('8.9');
                 }
 
                 if (isCorrect) {
@@ -573,7 +716,7 @@
                     explanation.textContent = explanations[questionNumber];
                     explanation.classList.remove('hidden');
 
-                    if (questionNumber === 3) {
+                    if (questionNumber === 6) {
                         // Show completion screen for the final question
                         showCompletionScreen();
                     } else {
@@ -591,6 +734,15 @@
                         const answerInput = document.getElementById(`answer-input${questionNumber}`);
                         answerInput.disabled = true;
                     } else if (questionNumber === 3) {
+                        const answerInput = document.getElementById(`answer-input${questionNumber}`);
+                        answerInput.disabled = true;
+                    } else if (questionNumber === 4) {
+                        document.getElementById('answer-input4-1').disabled = true;
+                        document.getElementById('answer-input4-2').disabled = true;
+                    } else if (questionNumber === 5) {
+                        document.getElementById('answer-input5-1').disabled = true;
+                        document.getElementById('answer-input5-2').disabled = true;
+                    } else if (questionNumber === 6) {
                         const answerInput = document.getElementById(`answer-input${questionNumber}`);
                         answerInput.disabled = true;
                     }
@@ -644,6 +796,27 @@
                         checkAnswer();
                     }
                 });
+            } else if (questionNumber === 4) {
+                document.getElementById('answer-input4-1').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input4-2').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+            } else if (questionNumber === 5) {
+                document.getElementById('answer-input5-1').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+                document.getElementById('answer-input5-2').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') checkAnswer();
+                });
+            } else {
+                const answerInput = document.getElementById(`answer-input${questionNumber}`);
+                answerInput.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') {
+                        checkAnswer();
+                    }
+                });
             }
 
             tryAgainButton.addEventListener('click', function () {
@@ -665,6 +838,20 @@
                     const answerInput = document.getElementById(`answer-input${questionNumber}`);
                     answerInput.value = '';
                     answerInput.disabled = false;
+                } else if (questionNumber === 4) {
+                    document.getElementById('answer-input4-1').value = '';
+                    document.getElementById('answer-input4-2').value = '';
+                    document.getElementById('answer-input4-1').disabled = false;
+                    document.getElementById('answer-input4-2').disabled = false;
+                } else if (questionNumber === 5) {
+                    document.getElementById('answer-input5-1').value = '';
+                    document.getElementById('answer-input5-2').value = '';
+                    document.getElementById('answer-input5-1').disabled = false;
+                    document.getElementById('answer-input5-2').disabled = false;
+                } else {
+                    const answerInput = document.getElementById(`answer-input${questionNumber}`);
+                    answerInput.value = '';
+                    answerInput.disabled = false;
                 }
                 submitButton.disabled = false;
                 feedback.classList.add('hidden');
@@ -678,7 +865,7 @@
             // Add skip functionality
             const skipButton = document.getElementById(`skip-button${questionNumber}`);
             skipButton.addEventListener('click', function () {
-                if (questionNumber === 3) {
+                if (questionNumber === 6) {
                     // Skip to completion screen for the final question
                     showCompletionScreen();
                 } else if (questionNumber < totalQuestions) {
@@ -704,11 +891,14 @@
         setupQuestionHandlers(1);
         setupQuestionHandlers(2);
         setupQuestionHandlers(3);
+        setupQuestionHandlers(4);
+        setupQuestionHandlers(5);
+        setupQuestionHandlers(6);
 
         // Add restart button functionality
         document.getElementById('restart-button').addEventListener('click', function () {
             currentQuestion = 1;
-            wrongAttempts = { 1: 0, 2: 0, 3: 0 };
+            wrongAttempts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
             showQuestion(1);
         });
     </script>
