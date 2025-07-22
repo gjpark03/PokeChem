@@ -1,12 +1,12 @@
 # PokeChem
 
-My updated General Chemistry final project. Make studying fun and interactive by answering
-Pokemon themed questions. Choose from three stories- from basic General Chemistry to more advanced topics. Correct answers will be "Super Effective". Get Hints if you can't get the right answer in two tries.
+My updated General Chemistry final project. Make studying fun and interactive by answering Pokemon themed questions. Choose from three stories- from basic General Chemistry to more advanced topics. Correct answers will be "Super Effective". Get Hints if you can't get the right answer in two tries.
 
 ## ✨ Features
 
 - **Chapters**: 3 Chapters each including different topics of General Chemistry
-- **Hint System**: Hints given after two wrong answers
+- **Skip System**: Skip questions using the Skip Question button.
+- **Hint System**: Hints given after two wrong answers.
 
 ## 🚀 Installation
 
