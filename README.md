@@ -27,6 +27,11 @@ cd PokeChem
 
 ### 2. Open index.html with Live Server
 
+## 🌐 Live Demo
+
+Try the live version of PokeChem here:
+https://poke-chem-j0wea17pr-gjpark03s-projects.vercel.app/
+
 ## 👤 Author
 
 Grace Park
